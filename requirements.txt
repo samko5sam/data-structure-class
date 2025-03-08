@@ -1,1 +1,5 @@
 smolagents[litellm]
+selenium
+helium
+pillow
+python-dotenv
