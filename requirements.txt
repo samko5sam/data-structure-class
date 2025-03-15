@@ -1,4 +1,4 @@
-smolagents[litellm]
+smolagents[litellm,gradio]
 selenium
 helium
 pillow
