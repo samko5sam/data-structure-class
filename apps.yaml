@@ -1,0 +1,28 @@
+apps:
+  - name: 找出臥底
+    id: wis
+    ios:
+      id: 6553973564
+    android:
+      id: cyou.sk5s.app.whereisspy
+    regions:
+      - TW
+      - MY
+
+  - name: 比手畫腳
+    id: charadesgo
+    ios:
+      id: 6590627568
+    android:
+      id: cyou.sk5s.app.charadesgo
+    regions:
+      - TW
+
+  - name: 解惑之書
+    id: answersai
+    ios:
+      id: 6739763131
+    android:
+      id: cyou.sk5s.app.answersai
+    regions:
+      - TW

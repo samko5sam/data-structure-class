@@ -27,5 +27,7 @@
 .DS_Store
 Thumbs.db
 
-HR_Dataset_2025.csv
-all_conversation_log.csv
+__pycache__/
+*.py[cod]
+
+rankings.json
