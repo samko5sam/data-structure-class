@@ -70,7 +70,7 @@ def get_ranking(urls = ['https://app.sensortower.com/overview/cyou.sk5s.app.answ
     time.sleep(1)
     for url in urls:
       driver.get(url)
-      time.sleep(1)
+      time.sleep(2)
       # Adjust the selector based on the actual HTML structure
       grid_elements = driver.find_elements(By.CLASS_NAME, "MuiGrid-item")
       print(grid_elements)
