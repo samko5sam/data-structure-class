@@ -1,6 +1,7 @@
 import os
 import asyncio
 import pandas as pd
+import json
 from dotenv import load_dotenv
 
 # 根據你的專案結構調整下列 import
@@ -25,13 +26,14 @@ async def process_chunk(chunk, start_idx, total_records, model_client, terminati
     """
     # 將資料轉成 dict 格式
     # HW1: Change prompt for new dataset
-    chunk_data = chunk.to_dict(orient='records')
+    # chunk_data = chunk.to_dict(orient='records')
+    chunk_data = chunk
     prompt = (
         f"目前正在處理第 {start_idx} 至 {start_idx + len(chunk) - 1} 筆資料（共 {total_records} 筆）。\n"
         f"以下為該批次資料:\n{chunk_data}\n\n"
         "請根據以上資料進行分析，並提供完整的開發者ASO建議。"
         "其中請特別注意：\n"
-        "  1. 分析不同日期的排名變化；\n"
+        "  1. 分析不同日期的排名變化（Naming rule: appName_region_platform）；\n"
         "  2. 請 MultimodalWebSurfer 搜尋外部網站，找出最新App開發者資訊資訊（例如趨勢、平台、政策更變等），\n"
         "     並將搜尋結果整合進回覆中；\n"
         "  3. 最後請提供具體的建議和相關參考資訊。\n"
@@ -81,10 +83,17 @@ async def main():
     # 使用 pandas 以 chunksize 方式讀取 CSV 檔案
     # HW1: Change dataset
     json_file_path = "../../rankings.json"
-    chunk_size = 1000
-    df = pd.read_json(json_file_path)
-    chunks = [df.iloc[i:i + chunk_size] for i in range(0, len(df), chunk_size)]
-    total_records = sum(chunk.shape[0] for chunk in chunks)
+    chunk_size = 2
+    with open(json_file_path, 'r') as file:
+        data = json.load(file)
+    chunks = []
+    # Convert the data to a list of tuples if it's a dictionary
+    items = list(data.items()) if isinstance(data, dict) else data
+    # Create chunks of data
+    for i in range(0, len(items), chunk_size):
+        chunk = items[i:i + chunk_size]
+        chunks.append(chunk)
+    total_records = len(chunks)
     
     # 利用 map 與 asyncio.gather 同時處理所有批次（避免使用傳統 for 迴圈）
     tasks = list(map(
