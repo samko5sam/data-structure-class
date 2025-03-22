@@ -14,5 +14,5 @@
 
 DevAssist AI Agent, designed for app developers or publishers. It helps you monetize your app by analyzing data, ad revenue, and subscriptions.
 
-![Dev AI Agent Architecture](./images/AIAppDevArchitecture.jpg)
-*🔼 Dev AI Agent Architecture Design*
+[![Dev AI Agent Architecture](./images/AIAppDevArchitecture.jpg)](https://samko5sam.github.io/data-structure-class/DevAssist.html)
+*🔼 Dev AI Agent Architecture Design* [Learn More](https://samko5sam.github.io/data-structure-class/DevAssist.html)
