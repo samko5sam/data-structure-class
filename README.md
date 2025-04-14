@@ -6,11 +6,19 @@
 
 [▶️ dataAgent.py](./tests/autogen/dataAgent.py)
 
-## HW2 - Questions Review Bot (0414更新
+## HW2 - Questions Review Bot (0414補
 
 [▶️ Qreview.py](./tests/autogen/DRai/Qreview.py)
 
-![image](https://github.com/user-attachments/assets/0812bbfd-6784-41d5-9ff0-4b0d85643a23)
+![HW2](https://github.com/user-attachments/assets/0812bbfd-6784-41d5-9ff0-4b0d85643a23)
+
+## HW3 - Mail Scraper (0414補
+
+[▶️ mail.py](./tests/autogen/webcon/mail.py)
+
+![HW3](https://github.com/user-attachments/assets/5da564c4-d406-4d01-987e-6f57e66a297b)
+
+![image](https://github.com/user-attachments/assets/a679d8c5-83a2-4c1d-a76d-0efe518f0d75)
 
 
 ## DevAssist
