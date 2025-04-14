@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFrame PDF</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        .table { width: 80%; margin: auto; border-collapse: collapse; }
+        .table th, .table td { border: 1px solid black; padding: 8px; text-align: center; }
+        .table th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h2>Qreview 結果報告</h2>
+    <table border="1" class="dataframe table table-bordered">
+  <thead>
+    <tr style="text-align: right;">
+      <th>序號</th>
+      <th>使用者</th>
+      <th>規格</th>
+      <th>日期</th>
+      <th>留言內容</th>
+      <th>商品優點</th>
+      <th>商品缺點</th>
+      <th>商品品質</th>
+      <th>購物體驗</th>
+      <th>無意義</th>
+      <th>備註</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>21</td>
+      <td>筱</td>
+      <td>玄武黑 256G</td>
+      <td>2024/11/03</td>
+      <td>到貨很快，手機很好用</td>
+      <td>手機很好用</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>到貨很快</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>維</td>
+      <td>雲岩灰 256G</td>
+      <td>2024/10/30</td>
+      <td>出貨很快，包裝也很完整！</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>出貨很快、包裝也很完整</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>俊</td>
+      <td>雲岩灰 256G</td>
+      <td>2024/10/24</td>
+      <td>出货速度快！手機质感很好！</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>手機质感很好</td>
+      <td>出货速度快</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>彥</td>
+      <td>雲岩灰 256G</td>
+      <td>2024/10/23</td>
+      <td>出貨效率非常快</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>出貨效率非常快</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>雅</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/10/12</td>
+      <td>鈷藤紫的顏色很有質感，每次購買手機，都選擇三星手機，用了各式的型號，都非常上手。</td>
+      <td>鈷藤紫顏色有質感、非常上手 (易用性)</td>
+      <td>N/A</td>
+      <td>(顏色)很有質感</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>提及品牌忠誠度 (都選擇三星手機) 和使用經驗 (用了各式的型號)</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>懷</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/10/08</td>
+      <td>趁活動買超級划算 顏色也超漂亮的</td>
+      <td>顏色超漂亮</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>趁活動買超級划算 (價格/價值)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>婉</td>
+      <td>雲岩灰 256G</td>
+      <td>2024/10/07</td>
+      <td>送貨速度快，商品品質很好、商品體驗佳，雲岩灰實體偏白色非常漂亮。</td>
+      <td>商品體驗佳、雲岩灰實體偏白色非常漂亮 (顏色描述及印象)</td>
+      <td>N/A</td>
+      <td>商品品質很好</td>
+      <td>送貨速度快</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>乃</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/10/02</td>
+      <td>出貨速度極快，商品品質良好，機款顏色很美，質感頗佳，令人滿意👍</td>
+      <td>機款顏色很美</td>
+      <td>N/A</td>
+      <td>商品品質良好、質感頗佳</td>
+      <td>出貨速度極快</td>
+      <td>N/A</td>
+      <td>整體滿意</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>裕</td>
+      <td>雲岩灰 256G</td>
+      <td>2024/09/30</td>
+      <td>出貨非常快速，商品包裝完善，使用起來手感好，有預留電力收到後可以直接開機檢測功能正常。</td>
+      <td>使用起來手感好</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>出貨非常快速、商品包裝完善</td>
+      <td>N/A</td>
+      <td>提及有預留電力可直接開機檢測 (便利性)</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>淑</td>
+      <td>雲岩灰 256G</td>
+      <td>2024/09/20</td>
+      <td>很好用的手機，很值得購買，品質也很好</td>
+      <td>很好用的手機、很值得購買</td>
+      <td>N/A</td>
+      <td>品質也很好</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>凱</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/09/18</td>
+      <td>操作流暢，拍照畫質好，色彩鮮豔飽和度佳佳，重量不會太重，很適合單手使用，琥珀黃顏色有氣質感。</td>
+      <td>操作流暢、拍照畫質好、色彩鮮豔飽和度佳、重量輕、適合單手使用、琥珀黃顏色有氣質感</td>
+      <td>N/A</td>
+      <td>(顏色)有氣質感</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>弘</td>
+      <td>玄武黑 256G</td>
+      <td>2024/09/11</td>
+      <td>超讚的出貨速度，很普通的商品品質，普普的CP值，超讚的服務，超讚的賣家，全部都很讚，真的超讚的啦~</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>很普通的商品品質 (中性/略負面)</td>
+      <td>超讚的出貨速度、普普的CP值 (性價比普通)、超讚的服務、超讚的賣家</td>
+      <td>全部都很讚，真的超讚的啦~ (過於空泛)</td>
+      <td>評論內容存在矛盾 (普通品質/CP值，但又說全部超讚)，可能為制式或諷刺性評價</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>采</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/09/08</td>
+      <td>出貨速度快，價格剛好碰到大特價，差距是5.6千塊，真的是滿實惠的</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>出貨速度快、價格碰到大特價 (滿實惠的)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>博</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/08/31</td>
+      <td>買到便宜好手機 外觀超美 拍照超強 超優質選擇</td>
+      <td>外觀超美、拍照超強</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>買到便宜好手機 (價格/價值)</td>
+      <td>N/A</td>
+      <td>整體評價高 (超優質選擇)</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>家</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/08/14</td>
+      <td>出貨快速，畫質好，值得購買。</td>
+      <td>畫質好、值得購買</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>出貨快速</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>鴻</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/08/14</td>
+      <td>媽媽準備出國玩，舊手機有黑線怕出去壞掉。這次S24相當有質感很漂亮</td>
+      <td>相當有質感很漂亮</td>
+      <td>N/A</td>
+      <td>相當有質感</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>提及購買背景 (為母親出國準備，舊手機有問題)</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>惠</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/08/06</td>
+      <td>"手機蠻小隻的,如果可用公分標示長寬高,除了網頁介紹的功能外,對沒有看到實品的人,應該更方便選購!"</td>
+      <td>手機蠻小隻的 (尺寸符合預期)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>提出建議：在網頁標示長寬高尺寸，方便未見實品的買家選購</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>麗</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/08/04</td>
+      <td>出貨速度快速，下次買手機會再回購。</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>出貨速度快速、下次會再回購 (表示滿意)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>筱</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/08/03</td>
+      <td>從舊手機轉換新手機時，新手機使用時異常的發熱，不知道這是正常現象嗎？</td>
+      <td>N/A</td>
+      <td>新手機使用時異常的發熱</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>詢問新機轉換資料時發熱是否正常</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>同</td>
+      <td>雲岩灰 256G</td>
+      <td>2024/07/30</td>
+      <td>快速到貨👍</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>快速到貨</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>使用者</td>
+      <td>規格</td>
+      <td>日期</td>
+      <td>評分</td>
+      <td>留言內容</td>
+      <td>商品優點</td>
+      <td>商品缺點</td>
+      <td>商品品質</td>
+      <td>購物體驗</td>
+      <td>無意義</td>
+      <td>備註</td>
+    </tr>
+    <tr>
+      <td>:-----</td>
+      <td>:---------</td>
+      <td>:---------</td>
+      <td>:---</td>
+      <td>:-------------------------------------------------------------------------------------------------------------------------------------</td>
+      <td>:-----------------------</td>
+      <td>:-------</td>
+      <td>:---------------</td>
+      <td>:----------------------------------------------------------------------------</td>
+      <td>:-----------------------</td>
+      <td>:-----------------------</td>
+    </tr>
+    <tr>
+      <td>昭</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/07/09</td>
+      <td>2</td>
+      <td>出貨快速，品質不錯，小孩喜歡</td>
+      <td>品質不錯</td>
+      <td>N/A</td>
+      <td>品質不錯</td>
+      <td>出貨快速</td>
+      <td>N/A</td>
+      <td>小孩喜歡</td>
+    </tr>
+    <tr>
+      <td>芳</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/06/22</td>
+      <td>1</td>
+      <td>"第一次在momo買手機，很滿意&gt;""&lt; 物流司機晚上八點才送到，辛苦嘍！"</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>第一次在momo買手機很滿意&lt;br&gt;物流晚到 (晚上八點) 但表示理解 ("辛苦嘍！")</td>
+      <td>N/A</td>
+      <td>整體滿意購物體驗</td>
+    </tr>
+    <tr>
+      <td>崇</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/06/20</td>
+      <td>2</td>
+      <td>出貨速度快，很漂亮，產品符合預期。</td>
+      <td>很漂亮&lt;br&gt;產品符合預期</td>
+      <td>N/A</td>
+      <td>產品符合預期</td>
+      <td>出貨速度快</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>嬿</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/06/18</td>
+      <td>1</td>
+      <td>下午5點多下單，隔天中午就到了，手機很美，質感比前幾代好很多</td>
+      <td>手機很美&lt;br&gt;質感比前幾代好</td>
+      <td>N/A</td>
+      <td>質感比前幾代好</td>
+      <td>下午下單隔天中午到 (快速)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>凱</td>
+      <td>玄武黑 256G</td>
+      <td>2024/06/15</td>
+      <td>0</td>
+      <td>物品滿意，但是這次物流出包，等了一整天最後打去問才知道物流公司第一天送錯站，要隔天才會到。 物流沒主動通知，momo 系統還顯示當天到，白等一整天</td>
+      <td>物品滿意</td>
+      <td>N/A</td>
+      <td>物品滿意</td>
+      <td>**負面：**&lt;br&gt;- 物流出包 (送錯站、延遲)&lt;br&gt;- 未主動通知&lt;br&gt;- Momo系統顯示錯誤</td>
+      <td>N/A</td>
+      <td>產品本身滿意，物流體驗差</td>
+    </tr>
+    <tr>
+      <td>忠</td>
+      <td>玄武黑 256G</td>
+      <td>2024/06/01</td>
+      <td>0</td>
+      <td>出貨速度快</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>出貨速度快</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>瑞</td>
+      <td>玄武黑 256G</td>
+      <td>2024/05/28</td>
+      <td>1</td>
+      <td>S系列一直都非常優秀</td>
+      <td>S系列一直都非常優秀</td>
+      <td>N/A</td>
+      <td>(隱含品質優良)</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>對S系列品牌印象佳</td>
+    </tr>
+    <tr>
+      <td>茂</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/05/12</td>
+      <td>0</td>
+      <td>讚讚讚讚讚讚讚讚讚讚讚讚讚好</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>讚讚讚...好 (無具體內容)</td>
+      <td>表達滿意，但無細節</td>
+    </tr>
+    <tr>
+      <td>淵</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/05/02</td>
+      <td>0</td>
+      <td>送貨速度非常快~商品收到可正常開啟沒問題~再來就使用看看了</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>收到可正常開啟</td>
+      <td>送貨速度非常快</td>
+      <td>N/A</td>
+      <td>剛收到，待實際使用</td>
+    </tr>
+    <tr>
+      <td>錦</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/04/24</td>
+      <td>1</td>
+      <td>"送貨速度迅速,品質符合預期"</td>
+      <td>品質符合預期</td>
+      <td>N/A</td>
+      <td>品質符合預期</td>
+      <td>送貨速度迅速</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>宏</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/04/18</td>
+      <td>0</td>
+      <td>還在與新機磨合，第一次買新品上市，剛好有回饋不少momo幣，覺得買起來很值得。---</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>有回饋momo幣，覺得值得</td>
+      <td>N/A</td>
+      <td>還在與新機磨合&lt;br&gt;第一次買新品上市</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

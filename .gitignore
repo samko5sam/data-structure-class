@@ -31,4 +31,7 @@ __pycache__/
 *.py[cod]
 
 rankings.json
+google-credentials.json
 .gradio/
+
+*.pdf
