@@ -7,6 +7,8 @@ load_dotenv()
 TUTA_EMAIL = os.getenv("TUTA_EMAIL")
 TUTA_PASSWORD = os.getenv("TUTA_PASSWORD")
 
+# HW3
+
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=False)  # 顯示瀏覽器
     page = browser.new_page()
@@ -67,8 +69,8 @@ with sync_playwright() as p:
             li_elements = page.query_selector_all("li.list-row")
             if index < len(li_elements):
                 li_elements[index].click()
-                page.wait_for_timeout(4000)
-                mailBody = page.query_selector("#mail-body")
+                page.wait_for_timeout(6000)
+                mailBody = page.query_selector("div.mail-viewer")
                 print(mailBody.inner_text())
                 ans = input("下一封電子郵件 (q退出)->")
                 if ans == 'q':
@@ -84,7 +86,7 @@ with sync_playwright() as p:
     logoutBtn = page.query_selector("button[data-testid='btn:switchAccount_action']")
     logoutBtn.click()
 
-    page.wait_for_timeout(6000)
+    page.wait_for_timeout(15000)
     # 關閉瀏覽器
     browser.close()
     print("瀏覽器已關閉")
