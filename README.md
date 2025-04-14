@@ -20,6 +20,16 @@
 
 ![image](https://github.com/user-attachments/assets/a679d8c5-83a2-4c1d-a76d-0efe518f0d75)
 
+## HW4 - EOEO Review Analysis
+
+[▶️ hw4/](./tests/hw4/)
+
+[▶️ hw4/main.py](./tests/hw4/main.py)
+
+![image](https://github.com/user-attachments/assets/765e1354-292b-4900-a3d9-46ea4dce407d)
+
+![image](https://github.com/user-attachments/assets/6f0c0bd3-5522-449b-9af9-46a73a62be92)
+
 
 ## DevAssist
 
