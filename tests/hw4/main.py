@@ -14,9 +14,9 @@ def getCsv(goodCode):
     scrapeComments(goodCode)
     tocsv()
 
-# 讓各Agent討論，標記評論後生成PDF報告
+# 標記評論後生成PDF報告
 def report_handler(user_prompt):
-    gradio_handler(user_prompt) # 生成PDF
+    return gradio_handler(user_prompt) # 生成PDF
 
 default_prompt = """請根據以下的評分項目將每個評論進行審核：
 
