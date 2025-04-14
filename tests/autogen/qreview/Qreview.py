@@ -10,6 +10,7 @@ from google.genai.errors import ServerError
 # 載入 .env 中的 GEMINI_API_KEY
 load_dotenv()
 
+# HW2
 # 定義評分項目（依據原始 xlsx 編碼規則）
 ITEMS = [
     "生活化",
@@ -54,6 +55,7 @@ def process_batch_question(client, questions: list, delimiter="-----"):
     提示中要求模型對每筆逐字稿產生 JSON 格式回覆，
     並以指定的 delimiter 分隔各筆結果。
     """
+    # HW2
     prompt = (
         "你是一位遊戲題目審核專家，請根據以下編碼規則評估每個題目的字詞是否合標準，\n"
         + "\n".join(ITEMS) +
@@ -116,6 +118,7 @@ def main():
     for start_idx in range(0, total, batch_size):
         end_idx = min(start_idx + batch_size, total)
         batch = df.iloc[start_idx:end_idx]
+        # HW2
         word1s = batch["字詞1"].tolist()
         word2s = batch["字詞2"].tolist()
         questions = [[w1, w2] for w1, w2 in zip(word1s, word2s)]
