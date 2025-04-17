@@ -1,6 +1,8 @@
 # Data Structure
 1132 資料結構
 
+授課教師：蔡芸琤老師
+
 - [Data Structure](#data-structure)
   - [HW1](#hw1)
   - [HW2 - Questions Review Bot (0414補](#hw2---questions-review-bot-0414補)
