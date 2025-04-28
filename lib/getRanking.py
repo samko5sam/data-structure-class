@@ -33,9 +33,6 @@ def parse_ranking_info(text_content):
         # Return None or handle error if parsing fails
         return None
 
-    # Replace the original return statement with the structured data
-    return parse_ranking_info(text_content)
-
 def get_ranking(urls = ['https://app.sensortower.com/overview/cyou.sk5s.app.answersai?country=TW'], autoLogin=True):
   data = []
   loginUrl = 'https://app.sensortower.com/users/sign_in'
@@ -72,14 +69,15 @@ def get_ranking(urls = ['https://app.sensortower.com/overview/cyou.sk5s.app.answ
       driver.get(url)
       time.sleep(2)
       # Adjust the selector based on the actual HTML structure
-      grid_elements = driver.find_elements(By.CLASS_NAME, "MuiGrid-item")
+      # grid_elements = driver.find_elements(By.CLASS_NAME, "MuiGrid2-root")
+      grid_elements = driver.find_elements(By.CSS_SELECTOR, 'div[role="listitem"]')
       print(grid_elements)
-      if len(grid_elements) >= 3:
-        third_element = grid_elements[2]  # 索引從 0 開始，第三個是 index 2
+      if len(grid_elements) == 15:
+        seventh_element = grid_elements[13]  # 索引從 0 開始
 
         try:
             # 在該元素內找到 <a> 標籤
-            a_tag = third_element.find_element(By.TAG_NAME, "a")
+            a_tag = seventh_element.find_element(By.TAG_NAME, "a")
 
             # 在 <a> 標籤內找到 <div> 並具有 aria-labelledby="app-overview-unified-kpi-category-ranking"
             target_div = a_tag.find_element(By.XPATH, './/div//span[@aria-labelledby="app-overview-unified-kpi-category-ranking"]')
@@ -88,6 +86,7 @@ def get_ranking(urls = ['https://app.sensortower.com/overview/cyou.sk5s.app.answ
             text_content = target_div.text
             rank = parse_ranking_info(text_content)
             if rank:
+                print(rank)
                 data.append(rank)
             else:
                 data.append(empty_rank)
