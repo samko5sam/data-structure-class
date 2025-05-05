@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品評論分析</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        button {
+            display: inline-block; /* Changed from block */
+            background-color: #5cb85c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px; /* Add some space between buttons */
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .status-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
+        .status-error {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+        }
+        .status-loading {
+            background-color: #d9edf7;
+            color: #31708f;
+            border: 1px solid #bce8f1;
+        }
+        #pdf-link-area {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #pdf-link-area a {
+            display: inline-block;
+            background-color: #337ab7;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        #pdf-link-area a:hover {
+            background-color: #286090;
+        }
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block; /* Changed from none */
+            vertical-align: middle;
+            margin-left: 10px;
+            visibility: hidden; /* Hidden by default */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>商品評論分析報告產生器</h1>
+
+        <form id="scrape-form">
+            <label for="goodCode">商品 ID:</label>
+            <input type="text" id="goodCode" name="goodCode" value="12334757" required>
+            <button type="submit" id="scrapeBtn">
+                爬取商品評論
+                <div class="loader" id="scrapeLoader"></div>
+            </button>
+        </form>
+
+        <form id="report-form" style="margin-top: 30px;">
+             <label for="user_prompt">分析指令:</label>
+            <textarea id="user_prompt" name="user_prompt" required>請根據以下的評分項目將每個評論進行審核：
+
+"商品優點",
+"商品缺點",
+"商品品質",
+"購物體驗",
+"無意義",
+"備註"
+
+並將所有題目進行整理後產出報表。</textarea>
+            <button type="submit" id="reportBtn">
+                生成分析報告
+                 <div class="loader" id="reportLoader"></div>
+            </button>
+        </form>
+
+        <div id="status"></div>
+        <div id="pdf-link-area"></div>
+
+    </div>
+
+    <script>
+        const scrapeForm = document.getElementById('scrape-form');
+        const reportForm = document.getElementById('report-form');
+        const statusDiv = document.getElementById('status');
+        const pdfLinkArea = document.getElementById('pdf-link-area');
+        const scrapeBtn = document.getElementById('scrapeBtn');
+        const reportBtn = document.getElementById('reportBtn');
+        const scrapeLoader = document.getElementById('scrapeLoader');
+        const reportLoader = document.getElementById('reportLoader');
+
+        function setLoading(button, loader, isLoading) {
+            if (isLoading) {
+                button.disabled = true;
+                loader.style.visibility = 'visible';
+                statusDiv.textContent = '處理中，請稍候...';
+                statusDiv.className = 'status-loading';
+                pdfLinkArea.innerHTML = ''; // Clear previous link
+            } else {
+                button.disabled = false;
+                loader.style.visibility = 'hidden';
+            }
+        }
+
+        scrapeForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            setLoading(scrapeBtn, scrapeLoader, true);
+            statusDiv.textContent = '正在爬取評論資料...';
+
+            const formData = new FormData(scrapeForm);
+
+            try {
+                const response = await fetch('/scrape', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
+                    statusDiv.textContent = `成功: ${result.message}`;
+                    statusDiv.className = 'status-success';
+                } else {
+                    statusDiv.textContent = `錯誤: ${result.message || '爬取失敗'}`;
+                    statusDiv.className = 'status-error';
+                }
+            } catch (error) {
+                console.error('Scrape Error:', error);
+                statusDiv.textContent = '發生錯誤，請檢查網路連線或伺服器狀態。';
+                statusDiv.className = 'status-error';
+            } finally {
+                setLoading(scrapeBtn, scrapeLoader, false);
+            }
+        });
+
+        reportForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            setLoading(reportBtn, reportLoader, true);
+            statusDiv.textContent = '正在生成分析報告...';
+
+            const formData = new FormData(reportForm);
+
+            try {
+                const response = await fetch('/report', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
+                    statusDiv.textContent = `成功: ${result.message}`;
+                    statusDiv.className = 'status-success';
+                    if (result.pdf_url && result.pdf_filename) {
+                        pdfLinkArea.innerHTML = `<a href="${result.pdf_url}" download="${result.pdf_filename}">下載 PDF 報告 (${result.pdf_filename})</a>`;
+                    }
+                } else {
+                     statusDiv.textContent = `錯誤: ${result.message || '報告生成失敗'}`;
+                    statusDiv.className = 'status-error';
+                }
+                 // Optionally display analysis summary if needed
+                 // console.log("Analysis Summary:", result.analysis_summary);
+
+            } catch (error) {
+                console.error('Report Error:', error);
+                statusDiv.textContent = '發生錯誤，請檢查網路連線或伺服器狀態。';
+                statusDiv.className = 'status-error';
+            } finally {
+                setLoading(reportBtn, reportLoader, false);
+            }
+        });
+    </script>
+</body>
+</html>

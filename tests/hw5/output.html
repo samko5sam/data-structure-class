@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品評論分析報告</title>
+    <style>
+        body { font-family: 'Arial', 'Microsoft JhengHei', sans-serif; text-align: left; margin: 20px; }
+        h2 { text-align: center; }
+        .table { width: 100%; margin: 20px 0; border-collapse: collapse; table-layout: fixed; } /* Use fixed layout */
+        .table th, .table td { border: 1px solid black; padding: 8px; text-align: left; word-wrap: break-word; } /* Enable word wrap */
+        .table th { background-color: #f2f2f2; font-weight: bold; }
+        .response-block { margin-bottom: 20px; padding: 15px; border: 1px solid #eee; border-radius: 5px; background-color: #f9f9f9;}
+        pre { white-space: pre-wrap; word-wrap: break-word; } /* Ensure preformatted text wraps */
+    </style>
+</head>
+<body>
+    <h2>商品評論分析報告</h2>
+    
+        <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>序號</th>
+      <th>使用者</th>
+      <th>規格</th>
+      <th>日期</th>
+      <th>評分</th>
+      <th>留言內容</th>
+      <th>商品優點</th>
+      <th>商品缺點</th>
+      <th>商品品質</th>
+      <th>購物體驗</th>
+      <th>無意義</th>
+      <th>備註</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>正</td>
+      <td>玄武黑 256G</td>
+      <td>2025/04/30</td>
+      <td></td>
+      <td>0訂購後快速收到貨，S24尺寸握感很好，使用smart switch快速將舊手機資料移轉過來，搭配momo活動後物超所值</td>
+      <td>S24尺寸握感好, Smart Switch 移轉資料快速方便</td>
+      <td>-</td>
+      <td>-</td>
+      <td>快速收到貨, 搭配momo活動物超所值</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>喻</td>
+      <td>鈷藤紫 256G</td>
+      <td>2025/04/30</td>
+      <td></td>
+      <td>0出貨快速，手機轉換使用Samsung 內建功能，大多數軟體還有檔案都可以簡單搬家。</td>
+      <td>Samsung 內建功能(Smart Switch) 簡單搬家</td>
+      <td>-</td>
+      <td>-</td>
+      <td>出貨快速</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>晨</td>
+      <td>鈷藤紫 256G</td>
+      <td>2025/04/16</td>
+      <td>3</td>
+      <td>3才下單就降價…只好退貨又重新下單</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>下單後降價 (負面)</td>
+      <td>-</td>
+      <td>評分為 3, 需退貨重下</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>彥</td>
+      <td>玄武黑 256G</td>
+      <td>2025/04/04</td>
+      <td></td>
+      <td>0朋友很喜歡，速度快物超所值</td>
+      <td>速度快</td>
+      <td>-</td>
+      <td>-</td>
+      <td>物超所值</td>
+      <td>-</td>
+      <td>朋友很喜歡 (幫朋友買)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>湘</td>
+      <td>鈷藤紫 256G</td>
+      <td>2025/04/02</td>
+      <td></td>
+      <td>0目前使用上都沒有問題！</td>
+      <td>-</td>
+      <td>-</td>
+      <td>使用上沒問題</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>佳</td>
+      <td>雲岩灰 256G</td>
+      <td>2025/03/18</td>
+      <td></td>
+      <td>0出貨快速，尺寸適合小手，使用smart switch可以快速備份舊手機資料！</td>
+      <td>尺寸適合小手, Smart Switch 快速備份</td>
+      <td>-</td>
+      <td>-</td>
+      <td>出貨快速</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>翠</td>
+      <td>鈷藤紫 256G</td>
+      <td>2025/03/08</td>
+      <td></td>
+      <td>0顏色很漂亮有質感，小小一支很適合女生，材質關係，溫度上升很有感</td>
+      <td>顏色漂亮有質感, 尺寸小適合女生</td>
+      <td>溫度上升很有感 (易發熱)</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>詠</td>
+      <td>雲岩灰 256G</td>
+      <td>2025/02/27</td>
+      <td></td>
+      <td>0雲岩灰的顏色很漂亮，很有質感。 手機出貨和到貨都很迅速，這次購買有搭到優惠活動，加上回饋的mo幣算蠻超值的。 不過鏡頭貼不是momo附的，是我另外購買的，但搭配起來很好看！</td>
+      <td>雲岩灰顏色漂亮有質感</td>
+      <td>-</td>
+      <td>-</td>
+      <td>出貨/到貨迅速, 搭到優惠活動+mo幣回饋很超值</td>
+      <td>-</td>
+      <td>鏡頭貼是另外購買的</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>怡</td>
+      <td>雲岩灰 256G</td>
+      <td>2025/02/18</td>
+      <td></td>
+      <td>"0出貨迅速，使用smart switch舊手機移轉資料非常方便，但金融相關app,因為安全性考量還是得重新登入，重綁裝置授權。 主打AI,如相機自動補白功能，行事日程語音下達和更改很方便"</td>
+      <td>Smart Switch方便, AI功能(相機補白, 語音日程)方便</td>
+      <td>Smart Switch需重登/重綁金融App (限制)</td>
+      <td>-</td>
+      <td>出貨迅速</td>
+      <td>-</td>
+      <td>提及金融App需重設</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>玲</td>
+      <td>雲岩灰 256G</td>
+      <td>2025/02/17</td>
+      <td></td>
+      <td>0首次購買三星手機，這個尺寸正好適合我，顏色是偏灰白還不錯看， 有折價券和回饋金很棒的一次購物</td>
+      <td>尺寸適合, 顏色不錯看 (灰白)</td>
+      <td>-</td>
+      <td>-</td>
+      <td>有折價券和回饋金，購物體驗很棒</td>
+      <td>-</td>
+      <td>首次購買三星手機</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>淑</td>
+      <td>雲岩灰 256G</td>
+      <td>2025/02/14</td>
+      <td></td>
+      <td>0產品優質，價錢漂亮，喜歡</td>
+      <td>-</td>
+      <td>-</td>
+      <td>產品優質</td>
+      <td>價錢漂亮</td>
+      <td>喜歡</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>錦</td>
+      <td>鈷藤紫 256G</td>
+      <td>2025/02/07</td>
+      <td></td>
+      <td>0商品出貨快速，目前使用上還可以</td>
+      <td>-</td>
+      <td>-</td>
+      <td>使用上還可以</td>
+      <td>商品出貨快速</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>彥</td>
+      <td>雲岩灰 256G</td>
+      <td>2025/02/02</td>
+      <td>2</td>
+      <td>2十分有效率</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>十分有效率 (可能指流程或送貨)</td>
+      <td>-</td>
+      <td>評分為 2</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>凱</td>
+      <td>鈷藤紫 256G</td>
+      <td>2025/01/30</td>
+      <td></td>
+      <td>0上支送人，這支自用，一樣好用上手。但因為急用，沒有跟上優惠，貴了不少，建議配合活動再買。</td>
+      <td>好用上手</td>
+      <td>-</td>
+      <td>-</td>
+      <td>沒跟上優惠貴了不少 (負面), 建議配合活動買 (建議)</td>
+      <td>-</td>
+      <td>第二次購買, 急用</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>宛</td>
+      <td>鈷藤紫 256G</td>
+      <td>2025/01/21</td>
+      <td></td>
+      <td>0從Note10+換成這一隻，不是旗艦款有點不適應，螢幕呈現和速度反應上都比不上幾年前的note10+，用了2週多的時間，有比較適應，整體來說表現還是算不錯</td>
+      <td>(適應後)整體表現算不錯</td>
+      <td>比不上Note10+(螢幕/速度), 需時間適應 (非旗艦款)</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>與Note10+比較</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>賽</td>
+      <td>雲岩灰 256G</td>
+      <td>2024/12/23</td>
+      <td>1</td>
+      <td>1送貨速度很快，符合需求，品質良好</td>
+      <td>-</td>
+      <td>-</td>
+      <td>品質良好</td>
+      <td>送貨速度很快</td>
+      <td>符合需求</td>
+      <td>評分為 1</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>玉</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/12/19</td>
+      <td></td>
+      <td>0訂貨隔天就收到了，顏色很喜歡，目前使用上都正常</td>
+      <td>顏色很喜歡</td>
+      <td>-</td>
+      <td>使用上都正常</td>
+      <td>訂貨隔天收到 (快速)</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>青</td>
+      <td>玄武黑 256G</td>
+      <td>2024/12/16</td>
+      <td></td>
+      <td>0請問，手機本體收到了，那手機保險何時會寄來呢，感恩</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>收到手機本體, 詢問手機保險寄送 (客服/售後問題)</td>
+      <td>感恩</td>
+      <td>提及手機保險問題</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>曉</td>
+      <td>琥珀黃 256G</td>
+      <td>2024/12/07</td>
+      <td></td>
+      <td>0使用尚佳，但第一次充電會發燙</td>
+      <td>-</td>
+      <td>第一次充電會發燙</td>
+      <td>使用尚佳</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>庭</td>
+      <td>鈷藤紫 256G</td>
+      <td>2024/12/05</td>
+      <td></td>
+      <td>0出貨速度太快了吧 商品不錯</td>
+      <td>-</td>
+      <td>-</td>
+      <td>商品不錯</td>
+      <td>出貨速度快</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+    
+</body>
+</html>
