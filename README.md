@@ -44,6 +44,11 @@
 ![image](https://github.com/user-attachments/assets/6f0c0bd3-5522-449b-9af9-46a73a62be92)
 *🔼 PDF output result*
 
+## HW5 - EOEO Re
+![image](https://github.com/user-attachments/assets/2da849bd-4913-4145-a883-01687877daf8)
+![image](https://github.com/user-attachments/assets/f24e08f3-f24c-4a38-8ef3-5fd723ff296d)
+
+
 
 ## DevAssist
 
